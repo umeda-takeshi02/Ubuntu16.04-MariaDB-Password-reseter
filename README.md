@@ -10,6 +10,3 @@ chmod 764 reseter.sh
 sudo ./reseter.sh
 # Please answer a few questions.
 ````
-
-### Warning
-When perform all account will be deleted.
