@@ -12,7 +12,7 @@ fi
 # LANG Set.
 LANG=C
 
-echo 'When perform all account will be deleted.'
+echo 'Reset the root password.'
 printf 'OK?[y/N]:'
 read CONFIRM
 echo ""
@@ -54,7 +54,8 @@ tmp=$(cat /dev/urandom | tr -dc '[:alnum:]' | head -c 16)
 
 mysql -u root << __EOL__
 use mysql;
-truncate table user;
+delete from user where User='root';
+delete from user where User='debian-sys-maint';
 flush privileges;
 grant all privileges on *.* to 'root'@'localhost' identified by '${MARIA_PASSWORD}' with grant option;
 grant all privileges on *.* to 'root'@'127.0.0.1' identified by '${MARIA_PASSWORD}' with grant option;
