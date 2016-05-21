@@ -22,7 +22,7 @@ case ${CONFIRM,,} in
     ;;
   *)
     echo 'Was interrupted.'
-	exit 1
+    exit 0
 esac
 
 printf 'Enter new password:'
